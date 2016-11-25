@@ -3,42 +3,59 @@ from functools import wraps
 
 app = Flask(__name__)
 
+# Protects the session from being accessed
 app.secret_key = "secretkey"
+
+# login required decorator
+# Reference to login decorator code - https://pythonprogramming.net/decorator-wrappers-flask-tutorial-login-required/
+def login_required(f):
+    @wraps(f) # wrapping the function f
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session: # if there is not a KEY called loggin_in (meaning user is logged in) in the session object
+            return f(*args, **kwargs) # if KEY is found in sessions, it is going to log you in
+        else:
+            flash('You need to login first.') # it is going to catch it, display this message
+            return redirect(url_for('login')) # and return it to the login page
+    return wrap
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid credentials. Please try again.'
-        else:
-            session['logged_in'] = True
-            #flash('You were just logged in! ')
-            return redirect(url_for('softDrinks'))
-    return render_template('login.html', error=error)
+    error = None # error is None to start off
+    if request.method == 'POST': # if method does = a post method
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin': # need to test the data
+            error = 'Invalid credentials. Please try again.' # This error will appear if login is incorrect
+        else: # Otherwise
+            session['logged_in'] = True # if user credentials are correct, logged in = Ture
+            #flash('You are logged in1! ') # flash message to say you are logged in
+            return redirect(url_for('softDrinks')) # redirect to opening page of web app
+    return render_template('login.html', error=error) # if credentials are wrong variable error will be shown
 
 
 @app.route('/logout')
-#@login_required
+@login_required # login is required to acces this page
 def logout():
     session.pop('logged_in' , None)
-    flash('You were just logged out!' )
-    return redirect(url_for('home'))
+    flash('You just logged out!' )
+    return redirect(url_for('login'))
 
 
 @app.route('/beer')
+@login_required# login is required to acces this page
 def beer():
     return render_template("beer.html")
 
 @app.route('/softDrinks')
+@login_required# login is required to acces this page
 def softDrinks():
     return render_template("softDrinks.html")
 
 @app.route('/wine')
+@login_required# login is required to acces this page
 def wine():
     return render_template("wine.html")
 
 @app.route('/spirits')
+@login_required# login is required to acces this page
 def spirits():
     return render_template("spirits.html")
 
