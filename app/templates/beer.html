@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- Reference to HTML Template
+http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked=h -->
+<html lang="en">
+<head>
+  <title>Beer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="\beer">Beer</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="\softDrinks">Soft Drinks</a></li>
+        <li><a href="\wine">Wine</a></li>
+		<li><a href="\spirits">Spirits</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="\"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+		<p>Useful Links for more Information</p>
+      <p><a href="http://www.popsugar.com/fitness/Calories-Popular-Beers-1504697">Popsugar.com</a></p>
+      <p><a href="http://www.calorieking.com/calories-in-beer.html">Calorieking.com</a></p>
+    </div>
+    <div class="col-sm-8 text-center"> 
+      <h1><b>Bottles of Beer</b></h1>
+	  <h2>Coors</h2>
+	  <li>102 Calories per per 1 bottle (12 fl.oz) </li>
+	  <li>Nutrition Facts: % = Daily Value</li>
+	  <ul class="dashed">
+		  <p>Total Fat	0g	0%</p>
+			<p>Sat.Fat    0g  0 %</p>
+			<p>  Trans Fat   0g</p>
+			 <p> Cholesterol 0mg 0 %</p>
+			<p>  Sodium  11mg    < 1 %</p>
+			 <p> Total Carbs.    5g   2 %</p>
+			<p> Alcohol 11.3g </p>
+			 <p> Sugars  0g</p>
+			 <p> Protein 0g</p>
+	  </ul>
+	  <li>"How to burn these calories?"</li>
+	  <ul class="dashed">
+		  <p>69mins Walking \ 29mins Jogging</p>
+	  </ul>
+		<h2>Bud Light</h2>
+	  <li>110 Calories per per 1 bottle (12 fl.oz)</li>
+	  <li>Nutrition Facts: % = Daily Value</li>
+	  <ul class="dashed">
+		  <p>Total Fat	0g	0%</p>
+			<p>Sat.Fat    0g  0 %</p>
+			<p>  Trans Fat   0g</p>
+			 <p> Cholesterol 0mg 0 %</p>
+			<p>  Sodium  11mg    < 1 %</p>
+			 <p> Total Carbs.    6.6g   2 %</p>
+			<p> Alcohol 11.4g </p>
+			 <p> Sugars  0g</p>
+			 <p> Protein 0.9g</p>
+	  </ul>
+	  <li>"How to burn these calories?"</li>
+	  <ul class="dashed">
+		  <p>29mins Walking \ 13mins Jogging</p>
+	  </ul>
+
+	  <h2>Blue Moon Belgian White</h2>
+	  <li>164 Calories per per 1 bottle (12 fl.oz)</li>
+	  <li>Nutrition Facts: % = Daily Value</li>
+	  <ul class="dashed">
+		  <p>Total Fat	0g	0%</p>
+			<p>Sat.Fat    0g  0 %</p>
+			<p>  Trans Fat   0g</p>
+			 <p> Cholesterol 0mg 0 %</p>
+			<p>  Sodium  8mg    < 1 %</p>
+			 <p> Total Carbs.    13g   4 %</p>
+			<p> Alcohol 14.9g </p>
+			 <p> Sugars  0g</p>
+			 <p> Protein 0g</p>
+	  </ul>
+	  <li>"How to burn these calories?"</li>
+	  <ul class="dashed">
+		  <p>45mins Walking \ 19mins Jogging</p>
+	  </ul>
+
+	  <h2>Stella Artois</h2>
+	  <li>153 Calories per per 1 bottle (12 fl.oz)</li>
+	  <li>Nutrition Facts: % = Daily Value</li>
+	  <ul class="dashed">
+		  <p>Total Fat	0g	0%</p>
+			<p>Sat.Fat    0g  0 %</p>
+			<p>  Trans Fat   0g</p>
+			 <p> Cholesterol 0mg 0 %</p>
+			<p>  Sodium  0mg    0 %</p>
+			 <p> Total Carbs.    12.8g   4 %</p>
+			<p> Alcohol 14g </p>
+			 <p> Sugars  0g</p>
+			 <p> Protein 1.2g</p>
+	  </ul>
+	  <li>"How to burn these calories?"</li>
+	  <ul class="dashed">
+		  <p>40mins Walking \ 17mins Jogging</p>
+	  </ul>
+
+	  <h2>Heineken</h2>
+	  <li>148 Calories per per 1 bottle (12 fl.oz)</li>
+	  <li>Nutrition Facts: % = Daily Value</li>
+	  <ul class="dashed">
+		  <p>Total Fat	0g	0%</p>
+			<p>Sat.Fat    0g  0 %</p>
+			<p>  Trans Fat   0g</p>
+			 <p> Cholesterol 0mg 0 %</p>
+			<p>  Sodium  7mg    < 1 %</p>
+			 <p> Total Carbs   11g   4 %</p>
+			<p> Alcohol 13.8g </p>
+			 <p> Sugars  0g</p>
+			 <p> Protein 1.5g</p>
+	  </ul>
+	  <li>"How to burn these calories?"</li>
+	  <ul class="dashed">
+		  <p>39mins Walking \ 17mins Jogging</p>
+	  </ul>
+
+	  
+
+
+
+    </div>
+    <div class="col-sm-2 sidenav">
+     <!-- <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>

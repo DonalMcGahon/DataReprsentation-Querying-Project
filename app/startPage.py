@@ -5,16 +5,6 @@ app = Flask(__name__)
 
 app.secret_key = "secretkey"
 
-@app.route('/index')
-#@login_required
-def index():
-    #return "Hello World"
-    return render_template("index.html")
-
-@app.route('/welcome')
-def home():
-    return render_template("welcome.html")
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
     error = None
@@ -23,8 +13,8 @@ def login():
             error = 'Invalid credentials. Please try again.'
         else:
             session['logged_in'] = True
-            flash('You were just logged in! ')
-            return redirect(url_for('home'))
+            #flash('You were just logged in! ')
+            return redirect(url_for('softDrinks'))
     return render_template('login.html', error=error)
 
 
@@ -48,9 +38,9 @@ def softDrinks():
 def wine():
     return render_template("wine.html")
 
-@app.route('/shots')
-def shots():
-    return render_template("shots.html")
+@app.route('/spirits')
+def spirits():
+    return render_template("spirits.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
