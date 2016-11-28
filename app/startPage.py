@@ -1,7 +1,13 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from functools import wraps
+import sqlite3
 
 app = Flask(__name__)
+
+
+DATABASE = "drinks"
+def connect_db():
+    return sqlite3.connect(DATABASE)
 
 # Protects the session from being accessed
 app.secret_key = "secretkey"
@@ -39,25 +45,26 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/beer')
-@login_required# login is required to acces this page
-def beer():
-    return render_template("beer.html")
-
 @app.route('/softDrinks')
 @login_required# login is required to acces this page
 def softDrinks():
     return render_template("softDrinks.html")
 
-@app.route('/wine')
-@login_required# login is required to acces this page
-def wine():
-    return render_template("wine.html")
 
-@app.route('/spirits')
-@login_required# login is required to acces this page
-def spirits():
-    return render_template("spirits.html")
+        # create a mapping for /addprofile
+@app.route("/addInfo")
+def addprofile():
+    drinkname = request.args.get("drinkname")
+    calories = request.args.get("calories")
+
+    db = connect_db()
+    sql = "insert into people (drinkname, calories) values(?,?)"
+    #db.execute(sql, [myname, calories])
+    db.commit()
+    db.close()
+
+    return render_template("softDrinks.html", htmlpage_drinkname=drinkname, htmlpage_calories=calories)
+ 
 
 if __name__ == "__main__":
     app.run(debug=True)

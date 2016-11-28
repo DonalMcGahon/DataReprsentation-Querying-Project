@@ -31,6 +31,7 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
       background-color: #555;
       color: white;
       padding: 15px;
+			width: 100%
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -57,9 +58,6 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="\beer">Beer</a></li>
-        <li><a href="\wine">Wine</a></li>
-		<li><a href="\spirits">Spirits</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="\logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -76,9 +74,42 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
       <p><a href="http://www.thehealthsite.com/fitness/diet/how-many-calories-do-soft-drinks-or-colas-have-po1214/">Thehealthsite.com</a></p>
     </div>
 
+		
+
+		<div class="col-sm-8 text-center">
+			<h1><b>Soft Drinks</b></h1>
+		<form action = "/addInfo" method = "GET">
+					<h2>Add in your own information about Soft-Drinks</h2>
+					<p>Enter the Name and amount of Calories below</p>
+            <h1>Name of Drink</h1><textarea name="drinkname" style="width:36%;height:30px;background-color:lightblue;color:olive;border:none;padding:2%;font:22px/30px sans-serif;">
+						</textarea>
+						<br></br>
+
+            <h1>Amount of Calories</h1><textarea name="calories" style="width:36%;height:30px;background-color:lightblue;color:olive;border:none;padding:2%;font:22px/30px sans-serif;">
+            </textarea>
+							<br></br>
+
+            <input style="background-color:yellowgreen;color:white;padding:5px;font-size:18px;border:none;padding:8px;" type = "submit" value = "Submit"/>
+						<br></br>
+
+						</div>
+						<div class="col-sm-8 text-left">
+            <h2>Drink Name</h2>
+							<h3 style="width:26%;height:60px;background-color:lightblue;color:black;border:none;padding:2%;font:22px/30px sans-serif;">
+								<li >{{htmlpage_drinkname}}</li>
+								</h3>
+							<h2>Calories</h2>
+							<h3 style="width:26%;height:60px;background-color:lightblue;color:black;border:none;padding:2%;font:22px/30px sans-serif;">
+								<li>{{htmlpage_calories}}</li>
+								</h3>
+								
+						</div>
+        </form>
+
+
 	
-    <div class="col-sm-8 text-center"> 
-      <h1><b>Soft Drink Bottles</b></h1>
+    <div class="col-sm-8 text-left">
+			<h1>Nutrition Facts below</h1> 
 	  <h2>Fanta</h2>
 	  <li>250 Calories per 500mL </li>
 	  <li>Nutrition Facts: % = Daily Value</li>
@@ -177,19 +208,13 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
 	  <ul class="dashed">
 		  <p>32mins Walking \ 13mins Jogging</p>
 	  </ul>
-
-	  
-      
-	  
     </div>
-    <div class="col-sm-2 sidenav">
-      </div>
+
     </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
 </footer>
 
 </body>
