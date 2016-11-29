@@ -9,7 +9,94 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+</script>
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.form-style-8 h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+</style>
+
+
   <style>
+		ul{ text-align:center;width:450px;margin-left:auto;margin-right:auto}
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -50,9 +137,7 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+                                
       </button>
       <a class="navbar-brand" href="\softDrinks">Soft Drinks</a>
     </div>
@@ -74,144 +159,26 @@ http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked
       <p><a href="http://www.thehealthsite.com/fitness/diet/how-many-calories-do-soft-drinks-or-colas-have-po1214/">Thehealthsite.com</a></p>
     </div>
 
-		
-
 		<div class="col-sm-8 text-center">
-			<h1><b>Soft Drinks</b></h1>
-		<form action = "/addInfo" method = "GET">
-					<h2>Add in your own information about Soft-Drinks</h2>
-					<p>Enter the Name and amount of Calories below</p>
-            <h1>Name of Drink</h1><textarea name="drinkname" style="width:36%;height:30px;background-color:lightblue;color:olive;border:none;padding:2%;font:22px/30px sans-serif;">
-						</textarea>
-						<br></br>
-
-            <h1>Amount of Calories</h1><textarea name="calories" style="width:36%;height:30px;background-color:lightblue;color:olive;border:none;padding:2%;font:22px/30px sans-serif;">
-            </textarea>
-							<br></br>
-
-            <input style="background-color:yellowgreen;color:white;padding:5px;font-size:18px;border:none;padding:8px;" type = "submit" value = "Submit"/>
-						<br></br>
-
-						</div>
-						<div class="col-sm-8 text-left">
-            <h2>Drink Name</h2>
-							<h3 style="width:26%;height:60px;background-color:lightblue;color:black;border:none;padding:2%;font:22px/30px sans-serif;">
-								<li >{{htmlpage_drinkname}}</li>
-								</h3>
-							<h2>Calories</h2>
-							<h3 style="width:26%;height:60px;background-color:lightblue;color:black;border:none;padding:2%;font:22px/30px sans-serif;">
-								<li>{{htmlpage_calories}}</li>
-								</h3>
-								
-						</div>
-        </form>
-
-
-	
-    <div class="col-sm-8 text-left">
-			<h1>Nutrition Facts below</h1> 
-	  <h2>Fanta</h2>
-	  <li>250 Calories per 500mL </li>
-	  <li>Nutrition Facts: % = Daily Value</li>
-	  <ul class="dashed">
-		  <p>Total Fat	0g	0%</p>
-			<p>Sat.Fat    0g  0 %</p>
-			<p>  Trans Fat   0g</p>
-			 <p> Cholesterol 0mg 0 %</p>
-			<p>  Sodium  73mg    3 %</p>
-			 <p> Total Carbs.    62.5g   21 %</p>
-			<p>  Dietary Fiber   0g  0 %</p>
-			 <p> Sugars  62.5g</p>
-			 <p> Protein 0g</p>
-			 <p> Potassium   0mg</p>
-	  </ul>
-	  <li>"How to burn these calories?"</li>
-	  <ul class="dashed">
-		  <p>69mins Walking \ 29mins Jogging</p>
-	  </ul>
-	  <h2>Classic Coca-Cola</h2>
-	  <li>202 Calories per 500mL </li>
-	  <li>Nutrition Facts: % = Daily Value</li>
-	  <ul class="dashed">
-		  <p>Total Fat	0g	0%</p>
-			<p>Sat.Fat    0g  0 %</p>
-			<p>  Trans Fat   0g</p>
-			 <p> Cholesterol 0mg 0 %</p>
-			<p>  Sodium  69mg    3 %</p>
-			 <p> Total Carbs.    56.3g   19 %</p>
-			<p>  Dietary Fiber   0g  0 %</p>
-			 <p> Sugars  56.3g</p>
-			 <p> Protein 0g</p>
-			 <p> Potassium   0mg</p>
-	  </ul>
-	  <li>"How to burn these calories?"</li>
-	  <ul class="dashed">
-		  <p>56mins Walking \ 23mins Jogging</p>
-	  </ul>
-
-	  <h2>Pepsi</h2>
-	  <li>211 Calories per 500mL </li>
-	  <li>Nutrition Facts: % = Daily Value</li>
-	  <ul class="dashed">
-		  <p>Total Fat	0g	0%</p>
-			<p>Sat.Fat    0g  0 %</p>
-			<p>  Trans Fat   0g</p>
-			 <p> Cholesterol 0mg 0 %</p>
-			<p>  Sodium  42mg    2 %</p>
-			 <p> Total Carbs.    57g   19 %</p>
-			<p>  Dietary Fiber   0g  0 %</p>
-			 <p> Sugars  57.7g</p>
-			 <p> Protein 0g</p>
-			 <p> Potassium   14.1mg</p>
-	  </ul>
-	  <li>"How to burn these calories?"</li>
-	  <ul class="dashed">
-		  <p>59mins Walking \ 24mins Jogging</p>
-	  </ul>
-
-	  <h2>Club Orange</h2>
-	  <li>203 Calories per 500mL </li>
-	  <li>Nutrition Facts: % = Daily Value</li>
-	  <ul class="dashed">
-		  <p>Total Fat	0g	0%</p>
-			<p>Sat.Fat    0g  0 %</p>
-			<p>  Trans Fat   0g</p>
-			 <p> Cholesterol 0mg 0 %</p>
-			<p>  Sodium  84mg    3 %</p>
-			 <p> Total Carbs.    54.7g   19 %</p>
-			<p>  Dietary Fiber   0g  0 %</p>
-			 <p> Sugars  54.1g</p>
-			 <p> Protein 0g</p>
-			 <p> Potassium   0mg</p>
-	  </ul>
-	  <li>"How to burn these calories?"</li>
-	  <ul class="dashed">
-		  <p>59mins Walking \ 24mins Jogging</p>
-	  </ul>
-
-	  <h2>Cidona</h2>
-	  <li>115 Calories per 500mL </li>
-	  <li>Nutrition Facts: % = Daily Value</li>
-	  <ul class="dashed">
-		  <p>Total Fat	0g	0%</p>
-			<p>Sat.Fat    0g  0 %</p>
-			<p>  Trans Fat   0g</p>
-			 <p> Cholesterol 0mg 0 %</p>
-			<p>  Sodium  42mg    2 %</p>
-			 <p> Total Carbs.    50g   18 %</p>
-			<p>  Dietary Fiber   0g  0 %</p>
-			 <p> Sugars  50.3g</p>
-			 <p> Protein 0g</p>
-			 <p> Potassium   0mg</p>
-	  </ul>
-	  <li>"How to burn these calories?"</li>
-	  <ul class="dashed">
-		  <p>32mins Walking \ 13mins Jogging</p>
-	  </ul>
-    </div>
-
-    </div>
-  </div>
+		<h1><b>Soft Drinks</b></h1>
+		</div>
+		<br></br>
+		<div class="form-style-8">
+  <h2>Add in your own information about Soft-Drinks</h2>
+  <form action = "/addInfo" method = "GET">
+    <input type="text" name="drinkname" placeholder="Drink Name" />
+    <input type="number" name="calories" placeholder="Calories per bottle" />
+    <input type="submit" value="Submit" />
+  </form>
+  <br></br>
+  <br></br>
+  <h2>Drink Names</h2>
+  <form method = "POST">
+    <p><b>{{htmlpage_drinkname}}</b></p>
+		<br></br>
+		<h2>Calories</h2>
+    <p> <b>{{htmlpage_calories}}</b> </p>
+	</form>
 </div>
 
 <footer class="container-fluid text-center">
