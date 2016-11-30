@@ -1,10 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, session, flash
-from functools import wraps
-import sqlite3
+from flask import Flask, render_template, redirect, url_for, request, session, flash # imports
+from functools import wraps #imports
+import sqlite3 # importing sqlite
 
+# name used to start app
 app = Flask(__name__)
 
-
+#Database for SQLite
 DATABASE = "drinks"
 def connect_db():
     return sqlite3.connect(DATABASE)
@@ -28,11 +29,10 @@ def login_required(f):
 def login():
     error = None # error is None to start off
     if request.method == 'POST': # if method does = a post method
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin': # need to test the data
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin': # need to test the data + username & password set to "admin"
             error = 'Invalid credentials. Please try again.' # This error will appear if login is incorrect
         else: # Otherwise
-            session['logged_in'] = True # if user credentials are correct, logged in = Ture
-            #flash('You are logged in1! ') # flash message to say you are logged in
+            session['logged_in'] = True # if user credentials are correct, logged in = True
             return redirect(url_for('softDrinks')) # redirect to opening page of web app
     return render_template('login.html', error=error) # if credentials are wrong variable error will be shown
 
@@ -40,9 +40,9 @@ def login():
 @app.route('/logout')
 @login_required # login is required to acces this page
 def logout():
-    session.pop('logged_in' , None)
+    session.pop('logged_in' , None) # setting to none will log user out
     flash('You just logged out!' )
-    return redirect(url_for('login'))
+    return redirect(url_for('login')) # redirects user back to login page
 
 
 @app.route('/softDrinks')
@@ -51,20 +51,20 @@ def softDrinks():
     return render_template("softDrinks.html")
 
 
-        # create a mapping for /addprofile
+
 @app.route("/addInfo")
 def addprofile():
-    drinkname = request.args.get("drinkname")
-    calories = request.args.get("calories")
+    drinkname = request.args.get("drinkname") # drinkname will be used to input name of drinks
+    calories = request.args.get("calories") # calories will be used to input the amount of calories
 
     db = connect_db()
     sql = "insert into people (drinkname, calories) values(?,?)"
-    #db.execute(sql, [myname, calories])
+    #db.execute(sql, [myname, calories]) --> commented out as was giving me an error
     db.commit()
     db.close()
 
     return render_template("softDrinks.html", htmlpage_drinkname=drinkname, htmlpage_calories=calories)
  
-
+# starts the app
 if __name__ == "__main__":
     app.run(debug=True)
