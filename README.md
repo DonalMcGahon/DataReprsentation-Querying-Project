@@ -33,8 +33,13 @@ I also use SQLite3 in my application but since I have a db.sql directory inside 
 
 Once you have these requirements installed you will be able to run the web application. To do so you must use the command prompt and commute to the folder of the web application and run the following:
 
+<<<<<<< HEAD
 ```bash
 * python startPage.py
+=======
+```
+python startPage.py
+>>>>>>> origin/master
 ```
 
 Once the application is running, you can access it by copying the URL giving to you which should be http://127.0.0.1:5000/, and pointing it to your browser.
